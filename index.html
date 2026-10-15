@@ -3,32 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mheer All-In-One | Smart Print & Cyber Cafe Tools</title>
-  <!-- Tailwind CSS CDN -->
+  <title>Mheer All-In-One | Enterprise Cyber & Print Suite</title>
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Google Fonts: Inter -->
+  
+  <!-- Font Awesome 6 Pro Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Premium Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'Noto Sans Devanagari', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
           },
           colors: {
+            slate: {
+              850: '#111827',
+              950: '#030712',
+            },
             brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
             }
+          },
+          boxShadow: {
+            'glow-indigo': '0 0 25px -5px rgba(99, 102, 241, 0.25)',
+            'card-hover': '0 20px 35px -10px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.05)',
           }
         }
       }
@@ -36,422 +46,406 @@
   </script>
 
   <style>
-    /* Custom printable styling */
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-      #printArea, #printArea * {
-        visibility: visible;
-      }
-      #printArea {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        background: white;
-      }
-      .no-print {
-        display: none !important;
-      }
-    }
-    .custom-scrollbar::-webkit-scrollbar {
+    /* Sleek Custom Scrollbar */
+    ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
     }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background-color: #cbd5e1;
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
       border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Subtle mesh gradient background */
+    .bg-mesh-pattern {
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.06) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(14, 165, 233, 0.05) 0px, transparent 50%);
+    }
+
+    /* Modal animation */
+    .modal-backdrop {
+      animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .modal-container {
+      animation: scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.96) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
     }
   </style>
 </head>
-<body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
+<body class="bg-[#fafbfd] text-slate-800 antialiased selection:bg-indigo-600 selection:text-white min-h-screen flex flex-col font-sans">
 
-  <!-- TOP HEADER -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <!-- Logo -->
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20 font-black text-xl">
-          M
+  <!-- ================= TOP MODERN HEADER ================= -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group select-none">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 via-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25 ring-2 ring-indigo-500/10 group-hover:scale-105 transition-transform duration-300">
+          <i class="fa-solid fa-layer-group text-lg"></i>
         </div>
         <div>
-          <span class="text-xl font-extrabold tracking-tight text-slate-900">Mheer <span class="text-blue-600">All-In-One</span></span>
-          <span class="hidden sm:inline-block ml-2 px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase bg-blue-100 text-blue-700 rounded-full">Cyber Tools</span>
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-extrabold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
+              Mheer <span class="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">All-In-One</span>
+            </span>
+            <span class="hidden sm:inline-flex items-center px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase bg-emerald-50 text-emerald-700 border border-emerald-200/60 rounded-full">
+              v2.5 PRO
+            </span>
+          </div>
+          <p class="text-[11px] font-medium text-slate-400 -mt-0.5 hidden sm:block">Smart Cyber Cafe & Digital Desk</p>
         </div>
+      </a>
+
+      <!-- Quick Action Navigation -->
+      <div class="flex items-center gap-3">
+        <nav class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl border border-slate-200/60 text-xs font-semibold text-slate-600">
+          <a href="#tools-section" class="px-3.5 py-1.5 rounded-lg hover:text-indigo-600 hover:bg-white transition-all">Quick Tools</a>
+          <a href="#services-section" class="px-3.5 py-1.5 rounded-lg hover:text-indigo-600 hover:bg-white transition-all">Portals</a>
+          <a href="#faq-section" class="px-3.5 py-1.5 rounded-lg hover:text-indigo-600 hover:bg-white transition-all">Knowledge Hub</a>
+        </nav>
+
+        <div class="h-6 w-px bg-slate-200 hidden md:block"></div>
+
+        <button onclick="openModal('passportModal')" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-indigo-600 text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-sm transition-all duration-200 hover:shadow-glow-indigo active:scale-95">
+          <i class="fa-solid fa-id-badge text-indigo-300"></i>
+          <span>Passport Print</span>
+        </button>
+
+        <button onclick="openModal('idCardModal')" class="inline-flex items-center gap-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200/80 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all active:scale-95">
+          <i class="fa-solid fa-address-card text-indigo-600"></i>
+          <span class="hidden sm:inline">ID Card A4</span>
+        </button>
       </div>
 
-      <!-- Quick Links -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-        <a href="#tools-section" class="hover:text-blue-600 transition-colors">Tools</a>
-        <a href="#services-section" class="hover:text-blue-600 transition-colors">Portals & Links</a>
-        <a href="#faq-section" class="hover:text-blue-600 transition-colors">Help & FAQ</a>
-        <button onclick="openModal('passportModal')" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-sm transition-all transform active:scale-95">
-          <i class="fa-solid fa-camera"></i> Passport Photo Maker
-        </button>
-      </nav>
-
-      <!-- Quick Action Mobile -->
-      <div class="flex md:hidden items-center gap-2">
-        <button onclick="openModal('passportModal')" class="bg-blue-600 text-white p-2.5 rounded-xl text-xs font-semibold">
-          <i class="fa-solid fa-camera"></i>
-        </button>
-      </div>
     </div>
   </header>
 
-  <!-- HERO SECTION WITH GRADIENT BANNER -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
-    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600 p-8 sm:p-12 text-white shadow-xl text-center">
-      <!-- Decorative background blur circles -->
-      <div class="absolute -top-12 -left-12 w-48 h-48 bg-white/20 rounded-full blur-2xl pointer-events-none"></div>
-      <div class="absolute -bottom-12 -right-12 w-56 h-56 bg-pink-400/25 rounded-full blur-2xl pointer-events-none"></div>
+  <!-- ================= HERO & SEARCH SECTION ================= -->
+  <section class="relative bg-mesh-pattern border-b border-slate-200/60 pt-10 pb-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+      
+      <!-- Announcement Pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-slate-200 shadow-sm text-slate-700 hover:border-indigo-300 transition-colors">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>100% Free Client-Side Security & Zero-Blank-Page Print Engine</span>
+      </div>
 
-      <div class="relative z-10 max-w-3xl mx-auto space-y-4">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md border border-white/30 text-white">
-          <i class="fa-solid fa-bolt text-yellow-300"></i> Cyber Cafe, CSC & Print Shops Ultimate Hub
-        </span>
-        <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight drop-shadow-sm">
-          Smart Print & Cyber Cafe Tools
+      <!-- Hero Heading -->
+      <div class="max-w-3xl mx-auto space-y-3">
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          Modern Digital Hub for <br class="hidden sm:inline" />
+          <span class="bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent">Cyber Cafes & CSC Portals</span>
         </h1>
-        <p class="text-sm sm:text-lg text-blue-100 font-normal">
-          AI document crop, instant passport size photo sheet, ID card layout, image compressor and 60+ verified government direct portal links — sab kuch ek hi jagah!
+        <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto font-normal">
+          Instant multi-copy passport photo grid, exact wallet-scale ID card layouts, image compression and direct verified government portal directory.
         </p>
       </div>
-    </div>
 
-    <!-- LIVE SEARCH BAR -->
-    <div class="max-w-3xl mx-auto -mt-6 relative z-20 px-2">
-      <div class="relative bg-white rounded-2xl shadow-xl border border-slate-200/80 p-2 flex items-center gap-3 transition-all focus-within:ring-4 focus-within:ring-blue-100 focus-within:border-blue-500">
-        <div class="pl-3 text-slate-400">
-          <i class="fa-solid fa-magnifying-glass text-lg"></i>
+      <!-- Sleek Live Search Bar -->
+      <div class="max-w-2xl mx-auto pt-2">
+        <div class="relative bg-white rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-200 p-2 flex items-center gap-3 transition-all duration-300 focus-within:ring-4 focus-within:ring-indigo-100 focus-within:border-indigo-500">
+          <div class="pl-3.5 text-slate-400">
+            <i class="fa-solid fa-magnifying-glass text-base"></i>
+          </div>
+          <input 
+            id="globalSearchInput" 
+            type="text" 
+            placeholder="Type any service (e.g. Passport Photo, Aadhaar, PAN, PF, DL, Resize, Ration)..."
+            class="w-full text-sm outline-none text-slate-800 placeholder-slate-400 py-1.5 bg-transparent font-medium"
+            oninput="handleLiveSearch()"
+          />
+          <button id="clearSearchBtn" onclick="clearSearch()" class="hidden pr-2 text-slate-400 hover:text-slate-600 text-xs">
+            <i class="fa-solid fa-circle-xmark text-sm"></i>
+          </button>
         </div>
-        <input 
-          id="globalSearchInput" 
-          type="text" 
-          placeholder="Search any service or tool (e.g. Passport Photo, Aadhaar, PAN, PF, DL, Resize)..."
-          class="w-full text-sm sm:text-base outline-none text-slate-800 placeholder-slate-400 py-2 bg-transparent"
-          oninput="handleLiveSearch()"
-        />
-        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden px-2 text-slate-400 hover:text-slate-600 text-sm">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+
+        <!-- Filter Pill Chips -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs">
+          <span class="text-slate-400 font-medium mr-1">Quick:</span>
+          <button onclick="setSearchFilter('Passport')" class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-lg text-slate-600 hover:border-indigo-400 hover:text-indigo-600 shadow-2xs transition-all">Passport</button>
+          <button onclick="setSearchFilter('Aadhaar')" class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-lg text-slate-600 hover:border-indigo-400 hover:text-indigo-600 shadow-2xs transition-all">Aadhaar</button>
+          <button onclick="setSearchFilter('PAN')" class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-lg text-slate-600 hover:border-indigo-400 hover:text-indigo-600 shadow-2xs transition-all">PAN Card</button>
+          <button onclick="setSearchFilter('Sarathi')" class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-lg text-slate-600 hover:border-indigo-400 hover:text-indigo-600 shadow-2xs transition-all">Driving Licence</button>
+          <button onclick="setSearchFilter('EPFO')" class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-lg text-slate-600 hover:border-indigo-400 hover:text-indigo-600 shadow-2xs transition-all">EPFO PF</button>
+        </div>
+
+        <div id="searchStats" class="text-xs font-semibold text-indigo-600 mt-3 hidden"></div>
       </div>
-      <div id="searchStats" class="text-xs text-center text-slate-500 mt-2 hidden"></div>
+
     </div>
   </section>
 
-  <!-- MAIN BODY CONTAINER -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+  <!-- ================= MAIN CONTENT DASHBOARD ================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-14 flex-1">
 
-    <!-- 1. ESSENTIAL & SMART UTILITY TOOLS -->
-    <section id="tools-section" class="category-block">
-      <div class="flex items-center justify-between mb-5">
-        <div class="flex items-center gap-2">
-          <div class="w-2 h-6 bg-blue-600 rounded-full"></div>
-          <h2 class="text-xl font-bold text-slate-900">Essential & Interactive Print Tools</h2>
-          <span class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-0.5 rounded-full">100% Working</span>
+    <!-- 1. INTERACTIVE PRINT & DESK TOOLS -->
+    <section id="tools-section" class="space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-2.5 h-6 bg-indigo-600 rounded-full"></div>
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 tracking-tight">Interactive Desk & Print Tools</h2>
+            <p class="text-xs text-slate-500 font-medium">Single-click utilities designed for high-speed print operations</p>
+          </div>
         </div>
+        <span class="text-[11px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full">
+          6 Live Utilities
+        </span>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
 
         <!-- Tool 1: Passport Photo Maker -->
-        <div onclick="openModal('passportModal')" class="service-card cursor-pointer group bg-white p-4 rounded-2xl border border-slate-200/90 hover:border-blue-500 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col items-center text-center relative overflow-hidden" data-tags="passport photo maker 35 45 a4 sheet 6 8 12 photo copy print">
-          <span class="absolute top-2 right-2 text-[10px] font-bold uppercase tracking-wider bg-rose-500 text-white px-1.5 py-0.5 rounded-md">HOT</span>
-          <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-3 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
+        <div onclick="openModal('passportModal')" class="service-card cursor-pointer group bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-indigo-500 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 flex flex-col items-center text-center relative overflow-hidden" data-tags="passport photo maker 35 45 a4 sheet 6 8 12 photo copy print">
+          <span class="absolute top-2.5 right-2.5 text-[9px] font-bold uppercase tracking-wider bg-rose-50 text-rose-600 border border-rose-200/80 px-2 py-0.5 rounded-md">HOT</span>
+          <div class="w-13 h-13 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-3 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-2xs">
             <i class="fa-solid fa-id-badge"></i>
           </div>
-          <h3 class="text-sm font-bold text-slate-800">Passport Photo</h3>
-          <p class="text-[11px] text-slate-500 mt-1">Multi-copy on A4 (6,8,12,16)</p>
+          <h3 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600">Passport Photo</h3>
+          <p class="text-[10px] text-slate-400 mt-1 font-medium">A4 Sheet (6, 8, 12, 16)</p>
         </div>
 
-        <!-- Tool 2: ID Card Auto Print (A4 Front/Back) -->
-        <div onclick="openModal('idCardModal')" class="service-card cursor-pointer group bg-white p-4 rounded-2xl border border-slate-200/90 hover:border-blue-500 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col items-center text-center relative overflow-hidden" data-tags="id card print aadhaar voter card print front back a4 sheet">
-          <span class="absolute top-2 right-2 text-[10px] font-bold uppercase tracking-wider bg-indigo-500 text-white px-1.5 py-0.5 rounded-md">PRO</span>
-          <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-3 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
-            <i class="fa-solid fa-print"></i>
+        <!-- Tool 2: ID Card Auto Print Layout -->
+        <div onclick="openModal('idCardModal')" class="service-card cursor-pointer group bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-indigo-500 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 flex flex-col items-center text-center relative overflow-hidden" data-tags="id card print aadhaar voter card print front back a4 sheet pvc wallet">
+          <span class="absolute top-2.5 right-2.5 text-[9px] font-bold uppercase tracking-wider bg-indigo-50 text-indigo-600 border border-indigo-200/80 px-2 py-0.5 rounded-md">PRO</span>
+          <div class="w-13 h-13 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-3 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-2xs">
+            <i class="fa-solid fa-address-card"></i>
           </div>
-          <h3 class="text-sm font-bold text-slate-800">ID Card A4 Print</h3>
-          <p class="text-[11px] text-slate-500 mt-1">Front & Back Align Tool</p>
+          <h3 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600">ID Card A4 Print</h3>
+          <p class="text-[10px] text-slate-400 mt-1 font-medium">Front + Back Align</p>
         </div>
 
-        <!-- Tool 3: Photo Crop & Resize (KB Reducer) -->
-        <div onclick="openModal('resizeModal')" class="service-card cursor-pointer group bg-white p-4 rounded-2xl border border-slate-200/90 hover:border-blue-500 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col items-center text-center relative" data-tags="resize image compress photo kb mb 20kb 50kb 100kb online form cyber">
-          <span class="absolute top-2 right-2 text-[10px] font-bold uppercase tracking-wider bg-emerald-500 text-white px-1.5 py-0.5 rounded-md">NEW</span>
-          <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-3 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-sm">
+        <!-- Tool 3: Photo Resizer & KB Reducer -->
+        <div onclick="openModal('resizeModal')" class="service-card cursor-pointer group bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-indigo-500 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 flex flex-col items-center text-center relative overflow-hidden" data-tags="resize image compress photo kb mb 20kb 50kb 100kb online form cyber">
+          <span class="absolute top-2.5 right-2.5 text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-600 border border-emerald-200/80 px-2 py-0.5 rounded-md">NEW</span>
+          <div class="w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-3 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-2xs">
             <i class="fa-solid fa-compress"></i>
           </div>
-          <h3 class="text-sm font-bold text-slate-800">Photo Resizer & KB</h3>
-          <p class="text-[11px] text-slate-500 mt-1">Form 20KB/50KB Reducer</p>
+          <h3 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600">Photo Resizer</h3>
+          <p class="text-[10px] text-slate-400 mt-1 font-medium">Form 20KB / 50KB</p>
         </div>
 
-        <!-- Tool 4: Simple Photo Adjuster / Filter -->
-        <div onclick="openModal('editorModal')" class="service-card cursor-pointer group bg-white p-4 rounded-2xl border border-slate-200/90 hover:border-blue-500 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col items-center text-center relative" data-tags="photo editor brightness contrast background clean light fix cyber">
-          <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-3 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all shadow-sm">
+        <!-- Tool 4: Photo Enhancer -->
+        <div onclick="openModal('editorModal')" class="service-card cursor-pointer group bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-indigo-500 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 flex flex-col items-center text-center relative overflow-hidden" data-tags="photo editor brightness contrast background clean light fix cyber">
+          <div class="w-13 h-13 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-3 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-2xs">
             <i class="fa-solid fa-wand-magic-sparkles"></i>
           </div>
-          <h3 class="text-sm font-bold text-slate-800">Photo Enhancer</h3>
-          <p class="text-[11px] text-slate-500 mt-1">Quick Brightness & Clean</p>
+          <h3 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600">Photo Enhancer</h3>
+          <p class="text-[10px] text-slate-400 mt-1 font-medium">Instant Light & Contrast</p>
         </div>
 
-        <!-- Tool 5: Payment Lock QR Generator -->
-        <div onclick="openModal('qrModal')" class="service-card cursor-pointer group bg-white p-4 rounded-2xl border border-slate-200/90 hover:border-blue-500 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col items-center text-center relative" data-tags="qr code upi payment print shop qr standee cyber cafe counter">
-          <div class="w-14 h-14 rounded-2xl bg-violet-50 text-violet-600 flex items-center justify-center text-2xl mb-3 group-hover:scale-110 group-hover:bg-violet-600 group-hover:text-white transition-all shadow-sm">
+        <!-- Tool 5: UPI Standee QR Maker -->
+        <div onclick="openModal('qrModal')" class="service-card cursor-pointer group bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-indigo-500 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 flex flex-col items-center text-center relative overflow-hidden" data-tags="qr code upi payment print shop qr standee cyber cafe counter">
+          <div class="w-13 h-13 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-3 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-2xs">
             <i class="fa-solid fa-qrcode"></i>
           </div>
-          <h3 class="text-sm font-bold text-slate-800">Shop UPI QR Maker</h3>
-          <p class="text-[11px] text-slate-500 mt-1">Counter Standee Print</p>
+          <h3 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600">Shop UPI Standee</h3>
+          <p class="text-[10px] text-slate-400 mt-1 font-medium">Counter A4 Print</p>
         </div>
 
-        <!-- Tool 6: Resume Bio-Data Form Template -->
-        <div onclick="openModal('resumeModal')" class="service-card cursor-pointer group bg-white p-4 rounded-2xl border border-slate-200/90 hover:border-blue-500 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col items-center text-center relative" data-tags="resume cv biodata marriage maker instant print download job bio data">
-          <div class="w-14 h-14 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-3 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all shadow-sm">
+        <!-- Tool 6: Quick CV / Bio-Data -->
+        <div onclick="openModal('resumeModal')" class="service-card cursor-pointer group bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-indigo-500 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 flex flex-col items-center text-center relative overflow-hidden" data-tags="resume cv biodata marriage maker instant print download job bio data">
+          <div class="w-13 h-13 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl mb-3 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300 shadow-2xs">
             <i class="fa-solid fa-file-lines"></i>
           </div>
-          <h3 class="text-sm font-bold text-slate-800">Quick CV / Biodata</h3>
-          <p class="text-[11px] text-slate-500 mt-1">Fast 2-Min Resume Print</p>
+          <h3 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600">Quick CV / Biodata</h3>
+          <p class="text-[10px] text-slate-400 mt-1 font-medium">2-Minute Job Resume</p>
         </div>
 
       </div>
     </section>
 
     <!-- 2. DIRECT GOVERNMENT & CITIZEN PORTALS DIRECTORY -->
-    <section id="services-section" class="category-block space-y-10">
+    <section id="services-section" class="space-y-10">
 
-      <!-- Subcategory: Identity & Citizen Essentials -->
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-2 h-6 bg-purple-600 rounded-full"></div>
-          <h2 class="text-lg font-bold text-slate-900">Citizen & Identity Verification Portals</h2>
+      <!-- Subcategory 1: Identity & Citizen Essentials -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-5 bg-purple-600 rounded-full"></div>
+          <h3 class="text-base font-bold text-slate-900 tracking-tight">Identity & Citizen Documentation</h3>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
 
-          <a href="https://myaadhaar.uidai.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-purple-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="aadhaar uidai download status update pvc card address correction">
-            <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://myaadhaar.uidai.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-purple-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="aadhaar uidai download status update pvc card address correction">
+            <div class="w-11 h-11 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-fingerprint"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">UIDAI MyAadhaar</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">UIDAI MyAadhaar</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">Download & PVC Order</p>
           </a>
 
-          <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/instant-e-pan" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-purple-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="pan card instant pan income tax uti nsdl e-pan status download">
-            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
-              <i class="fa-solid fa-address-card"></i>
+          <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/instant-e-pan" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-purple-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="pan card instant pan income tax uti nsdl e-pan status download">
+            <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
+              <i class="fa-solid fa-credit-card"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">PAN Card Services</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">PAN Card Services</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">Instant e-PAN & UTI/NSDL</p>
           </a>
 
-          <a href="https://voters.eci.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-purple-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="voter id nvsp eci epic download election card correction form 6 8">
-            <div class="w-12 h-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://voters.eci.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-purple-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="voter id nvsp eci epic download election card correction form 6 8">
+            <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-check-to-slot"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">Voter Portal (ECI)</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">Voter Portal (ECI)</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">EPIC Download & Status</p>
           </a>
 
-          <a href="https://crsorgi.gov.in/web/index.php/auth/login" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-purple-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="birth death certificate crs janam praman patra nagar nigam">
-            <div class="w-12 h-12 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://crsorgi.gov.in/web/index.php/auth/login" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-purple-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="birth death certificate crs janam praman patra nagar nigam">
+            <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-certificate"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">Birth / Death Cert</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">Birth / Death Cert</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">CRS National Portal</p>
           </a>
 
-          <a href="https://nfsa.gov.in/portal/ration_card_state_portals_aa" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-purple-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="ration card nfsa rashan card list download apply state">
-            <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://nfsa.gov.in/portal/ration_card_state_portals_aa" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-purple-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="ration card nfsa rashan card list download apply state">
+            <div class="w-11 h-11 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-bowl-rice"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">Ration Card (NFSA)</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">Ration Card (NFSA)</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">All States Ration List</p>
           </a>
 
-          <a href="https://www.passportindia.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-purple-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="passport seva appointment apply renewal police verification">
-            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://www.passportindia.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-purple-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="passport seva appointment apply renewal police verification">
+            <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-passport"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">Passport Seva</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-purple-600">Passport Seva</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">Apply & Track Status</p>
           </a>
 
         </div>
       </div>
 
-      <!-- Subcategory: Transport & Vehicles (Parivahan) -->
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-2 h-6 bg-amber-500 rounded-full"></div>
-          <h2 class="text-lg font-bold text-slate-900">Vehicle & Transport (Parivahan)</h2>
+      <!-- Subcategory 2: Transport & Vehicles (Parivahan) -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-5 bg-amber-500 rounded-full"></div>
+          <h3 class="text-base font-bold text-slate-900 tracking-tight">Vehicle & Transport (Parivahan)</h3>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
 
-          <a href="https://sarathi.parivahan.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-amber-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="sarathi driving licence dl learner license slot booking test">
-            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://sarathi.parivahan.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-amber-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="sarathi driving licence dl learner license slot booking test">
+            <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-id-card"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">Driving Licence (Sarathi)</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">Sarathi DL Portal</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">Learner & DL Renewal</p>
           </a>
 
-          <a href="https://vahan.parivahan.gov.in/nrservices/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-amber-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="vahan rc transfer vehicle ownership fitness noc rc status">
-            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://vahan.parivahan.gov.in/nrservices/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-amber-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="vahan rc transfer vehicle ownership fitness noc rc status">
+            <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-car"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">RC Services (Vahan)</h3>
-            <p class="text-[10px] text-slate-400 mt-0.5">Vehicle RC & Transfer</p>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">Vahan RC Hub</h4>
+            <p class="text-[10px] text-slate-400 mt-0.5">RC Transfer & Fitness</p>
           </a>
 
-          <a href="https://echallan.parivahan.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-amber-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="echallan challan payment traffic police fine online payment">
-            <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://echallan.parivahan.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-amber-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="echallan challan payment traffic police fine online payment">
+            <div class="w-11 h-11 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-receipt"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">E-Challan Portal</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">E-Challan Pay</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">Pay Pending Fine</p>
           </a>
 
-          <a href="https://checkpost.parivahan.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-amber-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="checkpost border tax receipt commercial vehicle parivahan">
-            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://checkpost.parivahan.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-amber-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="checkpost border tax receipt commercial vehicle parivahan">
+            <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-truck-moving"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">Checkpost Tax</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">Checkpost Tax</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">Border Road Tax Pay</p>
           </a>
 
-          <a href="https://vahan.parivahan.gov.in/puc/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-amber-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="puc certificate pollution under control validity check download">
-            <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://vahan.parivahan.gov.in/puc/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-amber-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="puc certificate pollution under control validity check download">
+            <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-smog"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">PUC Certificate</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">PUC Certificate</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">Pollution Certificate</p>
           </a>
 
-          <a href="https://fastag.ihmcl.com/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-amber-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="fastag kyc status recharge toll plaza online">
-            <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://fastag.ihmcl.com/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-amber-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="fastag kyc status recharge toll plaza online">
+            <div class="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-tag"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">FASTag Services</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-amber-600">FASTag Services</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">Check Status & Recharge</p>
           </a>
 
         </div>
       </div>
 
-      <!-- Subcategory: Government Welfare & Schemes -->
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-2 h-6 bg-emerald-600 rounded-full"></div>
-          <h2 class="text-lg font-bold text-slate-900">Government Schemes & Direct Benefits</h2>
+      <!-- Subcategory 3: Government Benefits & Welfare -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-5 bg-emerald-600 rounded-full"></div>
+          <h3 class="text-base font-bold text-slate-900 tracking-tight">Direct Benefits & Welfare Schemes</h3>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
 
-          <a href="https://pmkisan.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-emerald-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="pm kisan samman nidhi kyc beneficiary status installment list">
-            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://pmkisan.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-emerald-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="pm kisan samman nidhi kyc beneficiary status installment list">
+            <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-seedling"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">PM Kisan Nidhi</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">PM Kisan Nidhi</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">Beneficiary & eKYC</p>
           </a>
 
-          <a href="https://beneficiary.nha.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-emerald-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="ayushman bharat pmjay golden card download free hospital treatment 5 lakh">
-            <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://beneficiary.nha.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-emerald-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="ayushman bharat pmjay golden card download free hospital treatment 5 lakh">
+            <div class="w-11 h-11 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-heart-pulse"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">Ayushman PM-JAY</h3>
-            <p class="text-[10px] text-slate-400 mt-0.5">Card Download & Apply</p>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">Ayushman PM-JAY</h4>
+            <p class="text-[10px] text-slate-400 mt-0.5">Card Download & Status</p>
           </a>
 
-          <a href="https://abdm.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-emerald-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="abha card health account digital health card ayushman ndhm">
-            <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://abdm.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-emerald-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="abha card health account digital health card ayushman ndhm">
+            <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-square-plus"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">ABHA Health Card</h3>
-            <p class="text-[10px] text-slate-400 mt-0.5">Create & Download</p>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">ABHA Health Card</h4>
+            <p class="text-[10px] text-slate-400 mt-0.5">Generate Digital Health ID</p>
           </a>
 
-          <a href="https://eshram.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-emerald-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="e shram card shramik card registration uan card download">
-            <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://eshram.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-emerald-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="e shram card shramik card registration uan card download">
+            <div class="w-11 h-11 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-person-digging"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">E-Shram Portal</h3>
-            <p class="text-[10px] text-slate-400 mt-0.5">UAN Card Registration</p>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">E-Shram Portal</h4>
+            <p class="text-[10px] text-slate-400 mt-0.5">UAN Registration & Update</p>
           </a>
 
-          <a href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-emerald-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="epfo pf member passbook claim withdrawal uan login kyc">
-            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-emerald-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="epfo pf member passbook claim withdrawal uan login kyc">
+            <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-landmark"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">EPFO / PF Member</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">EPFO / PF Member</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">UAN Claim & Passbook</p>
           </a>
 
-          <a href="https://pmsuryaghar.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-emerald-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="pm surya ghar muft bijli yojana solar rooftop subsidy free electricity">
-            <div class="w-12 h-12 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
+          <a href="https://pmsuryaghar.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-emerald-500 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center" data-tags="pm surya ghar muft bijli yojana solar rooftop subsidy free electricity">
+            <div class="w-11 h-11 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-lg mb-2.5 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-solar-panel"></i>
             </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">PM Surya Ghar</h3>
+            <h4 class="text-xs font-bold text-slate-800 group-hover:text-emerald-600">PM Surya Ghar</h4>
             <p class="text-[10px] text-slate-400 mt-0.5">Muft Bijli Rooftop Solar</p>
-          </a>
-
-        </div>
-      </div>
-
-      <!-- Subcategory: Business, Tax & Daily Cafe Services -->
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-2 h-6 bg-cyan-600 rounded-full"></div>
-          <h2 class="text-lg font-bold text-slate-900">Business, Tax & Everyday Cafe Links</h2>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
-
-          <a href="https://services.gst.gov.in/services/searchtp" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-cyan-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="gst portal search taxpayer verification returns gstr">
-            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
-              <i class="fa-solid fa-file-invoice-dollar"></i>
-            </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-cyan-600">GST Verification</h3>
-            <p class="text-[10px] text-slate-400 mt-0.5">Search Taxpayer</p>
-          </a>
-
-          <a href="https://udyamregistration.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-cyan-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="udyam aadhaar msme certificate registration print small business">
-            <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
-              <i class="fa-solid fa-briefcase"></i>
-            </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-cyan-600">Udyam MSME</h3>
-            <p class="text-[10px] text-slate-400 mt-0.5">New MSME Certificate</p>
-          </a>
-
-          <a href="https://scholarships.gov.in/" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-cyan-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="nsp national scholarship portal student renewal registration oliver">
-            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
-              <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-cyan-600">Scholarship (NSP)</h3>
-            <p class="text-[10px] text-slate-400 mt-0.5">Student Online Form</p>
-          </a>
-
-          <a href="https://www.irctc.co.in/nget/train-search" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-cyan-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="irctc railway train ticket booking pnr status tatkal reservation">
-            <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
-              <i class="fa-solid fa-train"></i>
-            </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-cyan-600">IRCTC Railway</h3>
-            <p class="text-[10px] text-slate-400 mt-0.5">Ticket & PNR Search</p>
-          </a>
-
-          <a href="https://myhpgas.in/myhpgas/Index.aspx" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-cyan-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="lpg cylinder booking hp gas indane bharat subsidy ujjwala cylinder">
-            <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
-              <i class="fa-solid fa-fire-flame-simple"></i>
-            </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-cyan-600">LPG Gas Booking</h3>
-            <p class="text-[10px] text-slate-400 mt-0.5">HP / Indane / Bharat</p>
-          </a>
-
-          <a href="https://www.cibil.com/freecibilscore" target="_blank" rel="noopener noreferrer" class="service-card group bg-white p-3.5 rounded-2xl border border-slate-200/90 hover:border-cyan-500 hover:shadow-md transition-all flex flex-col items-center text-center" data-tags="cibil score credit report loan check eligibility free score 750 900">
-            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition-transform">
-              <i class="fa-solid fa-gauge-high"></i>
-            </div>
-            <h3 class="text-xs font-bold text-slate-800 group-hover:text-cyan-600">Check CIBIL Free</h3>
-            <p class="text-[10px] text-slate-400 mt-0.5">Loan & Credit Score</p>
           </a>
 
         </div>
@@ -459,55 +453,31 @@
 
     </section>
 
-    <!-- 3. FAQS SECTION (CYBER CAFE & PRINT SHOP) -->
-    <section id="faq-section" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
-      <div class="max-w-3xl mx-auto text-center mb-8">
-        <h2 class="text-2xl font-black text-slate-900 tracking-tight">Document Crop, Passport Photo & Cyber Cafe FAQs</h2>
-        <p class="text-sm text-slate-500 mt-2">Cyber cafe aur print shop ke aam sawal aur unke quick solutions</p>
+    <!-- 3. FAQS ACCORDION -->
+    <section id="faq-section" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm max-w-4xl mx-auto space-y-6">
+      <div class="text-center space-y-2">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Cyber Cafe & Print Shop FAQs</h2>
+        <p class="text-xs sm:text-sm text-slate-500 font-medium">Clear answers for everyday desk operations</p>
       </div>
 
-      <div class="max-w-3xl mx-auto space-y-3" id="faqAccordion">
-        <!-- FAQ 1 -->
-        <div class="border border-slate-200 rounded-xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
-            <span>Passport photo maker me A4 sheet par kitne photo aate hain?</span>
+      <div class="space-y-3" id="faqAccordion">
+        <div class="border border-slate-200 rounded-2xl overflow-hidden transition-all">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 font-bold text-xs sm:text-sm text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
+            <span>Passport photo maker me A4 sheet par kitne photo print aate hain?</span>
             <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
           </button>
           <div class="hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Aap 3.5cm x 4.5cm standard passport ratio me 6, 8, 12 ya 16 photo ki sheet ek click me ready kar sakte hain. Sheet A4 photo paper (Glossy ya Matte) par standard quality me perfect print hoti hai bina border kate.
+            Aap standard 3.5cm x 4.5cm passport ratio me 6, 8, 12, 16 ya 24 photo ki sheet ek click me print le sakte hain. Sheet standard A4 photo paper (Glossy / Matte) par borderless scale hoti hai.
           </div>
         </div>
 
-        <!-- FAQ 2 -->
-        <div class="border border-slate-200 rounded-xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
-            <span>WhatsApp se aayi tedhi photo ya ID card ko kaise theek karein?</span>
+        <div class="border border-slate-200 rounded-2xl overflow-hidden transition-all">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 font-bold text-xs sm:text-sm text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
+            <span>Kya Mheer All-In-One par customer ki photo ya data internet par save hota hai?</span>
             <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
           </button>
           <div class="hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Aap hamare <b>ID Card A4 Print</b> tool me image upload karke usko rotate, crop aur clean background me place kar sakte hain. Isse WhatsApp ki compressed aur tedhi aayi hui ID cards seedhi hokar original A4 scale par print hoti hain.
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="border border-slate-200 rounded-xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
-            <span>Online form bharte time 20KB se 50KB me photo kaise banayein?</span>
-            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
-          </button>
-          <div class="hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            <b>Photo Resizer & KB Reducer</b> tool me photo upload karein. Wahan slider se quality adjust karke target 20KB ya 50KB par set karein aur direct JPG download karein bina photo blur hue.
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="border border-slate-200 rounded-xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
-            <span>Kya Mheer All-In-One user ka private data ya photo server par save karta hai?</span>
-            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
-          </button>
-          <div class="hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Bilkul nahi! Ye saare photo tools 100% <b>Client-side (aapke browser me)</b> chalte hain. Aapki photo ya documents internet ke kisi bhi server par upload nahi hote, isliye customer ka data 100% surakshit rehta hai.
+            Nahi! Hamare sabhi tools 100% <b>Client-side (aapke browser ke andar)</b> process hote hain. Koi bhi document ya photo kisi cloud server par upload nahi hoti, isliye customer ka data 100% private aur surakshit rehta hai.
           </div>
         </div>
       </div>
@@ -515,98 +485,102 @@
 
   </main>
 
-  <!-- ==================== WORKING MODALS ==================== -->
+  <!-- ================= SLEEK WORKING MODALS ================= -->
 
   <!-- 1. PASSPORT PHOTO MAKER MODAL -->
-  <div id="passportModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden my-6 border border-slate-200 flex flex-col max-h-[90vh]">
-      <!-- Header -->
-      <div class="px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <i class="fa-solid fa-id-badge text-xl"></i>
+  <div id="passportModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto modal-backdrop">
+    <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200 flex flex-col max-h-[90vh] modal-container overflow-hidden">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-4.5 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-indigo-600/30 text-indigo-400 border border-indigo-500/30 flex items-center justify-center text-base">
+            <i class="fa-solid fa-id-badge"></i>
+          </div>
           <div>
-            <h3 class="font-bold text-base sm:text-lg">Passport Size Photo Sheet Maker</h3>
-            <p class="text-xs text-blue-100">Upload photo, choose quantity & print direct on A4</p>
+            <h3 class="font-bold text-sm sm:text-base tracking-tight text-white">Passport Photo Studio Grid</h3>
+            <p class="text-[11px] text-slate-400">Generate calibrated A4 print layouts (3.5cm x 4.5cm)</p>
           </div>
         </div>
-        <button onclick="closeModal('passportModal')" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors">
+        <button onclick="closeModal('passportModal')" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
           <i class="fa-solid fa-xmark text-sm"></i>
         </button>
       </div>
 
-      <!-- Content Area -->
+      <!-- Controls & Preview -->
       <div class="p-6 overflow-y-auto custom-scrollbar space-y-6">
-        <!-- Controls Bar -->
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
-          <!-- Upload -->
           <div class="sm:col-span-2">
-            <label class="block text-xs font-bold text-slate-700 mb-1">Upload Photo (JPG/PNG)</label>
-            <input type="file" id="passportInput" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700 cursor-pointer" onchange="handlePassportUpload(event)" />
+            <label class="block text-xs font-bold text-slate-700 mb-1">Select Photo (JPG / PNG)</label>
+            <input type="file" id="passportInput" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-indigo-600 cursor-pointer" onchange="handlePassportUpload(event)" />
           </div>
 
-          <!-- Quantity -->
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">Copies on Sheet</label>
-            <select id="passportCopies" onchange="renderPassportGrid()" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs text-slate-800 outline-none focus:ring-2 focus:ring-blue-500">
+            <select id="passportCopies" onchange="renderPassportGrid()" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs text-slate-800 font-medium outline-none focus:ring-2 focus:ring-indigo-500">
               <option value="6">6 Photos (Single Row)</option>
               <option value="8" selected>8 Photos (Standard 2x4)</option>
               <option value="12">12 Photos (3x4 Grid)</option>
               <option value="16">16 Photos (4x4 Grid)</option>
-              <option value="24">24 Photos (Bulk A4)</option>
+              <option value="24">24 Photos (Full Page)</option>
             </select>
           </div>
 
-          <!-- Border Color -->
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">Photo Border</label>
-            <select id="passportBorder" onchange="renderPassportGrid()" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs text-slate-800 outline-none focus:ring-2 focus:ring-blue-500">
+            <select id="passportBorder" onchange="renderPassportGrid()" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs text-slate-800 font-medium outline-none focus:ring-2 focus:ring-indigo-500">
               <option value="border border-slate-300">Thin Gray Border</option>
-              <option value="border-2 border-black">Thin Black Cutline</option>
+              <option value="border-2 border-black">Crisp Black Cutline</option>
               <option value="border-0">No Border</option>
             </select>
           </div>
         </div>
 
-        <!-- A4 Sheet Live Preview Canvas / Printable Container -->
+        <!-- Live Sheet Preview -->
         <div class="flex flex-col items-center">
-          <p class="text-xs text-slate-400 mb-2 font-medium">A4 Paper Print Preview (3.5cm x 4.5cm Ratio)</p>
-          <div id="passportPrintSheet" class="bg-white border-2 border-dashed border-slate-300 p-6 rounded-2xl w-full max-w-2xl min-h-[360px] flex items-center justify-center shadow-inner">
-            <div id="emptyPassportState" class="text-center text-slate-400 py-12">
-              <i class="fa-solid fa-cloud-arrow-up text-4xl mb-3 text-slate-300"></i>
-              <p class="text-sm font-semibold">Photo upload karein preview dekhne ke liye</p>
-              <p class="text-xs text-slate-400 mt-1">Direct crop and instant multi-print layout</p>
+          <p class="text-xs text-slate-400 mb-2 font-medium">Live A4 Paper Visualizer</p>
+          <div id="passportPrintSheet" class="bg-white border-2 border-dashed border-slate-200 p-6 rounded-2xl w-full max-w-2xl min-h-[340px] flex items-center justify-center shadow-inner">
+            <div id="emptyPassportState" class="text-center text-slate-400 py-10">
+              <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 text-xl mb-3">
+                <i class="fa-solid fa-image"></i>
+              </div>
+              <p class="text-xs font-bold text-slate-700">Photo choose karte hi layout appear hoga</p>
+              <p class="text-[11px] text-slate-400 mt-1">Calibrated for A4 Glossy & Matte sheet output</p>
             </div>
-            <!-- Grid generated by JS -->
-            <div id="passportGridContainer" class="hidden flex-wrap justify-center items-center gap-4 w-full"></div>
+            <div id="passportGridContainer" class="hidden flex flex-wrap justify-center items-center gap-4 w-full"></div>
           </div>
         </div>
       </div>
 
-      <!-- Footer Buttons -->
+      <!-- Modal Footer -->
       <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
-        <span class="text-xs text-slate-500 font-medium">Paper Size: A4 Sheet (Standard 300 DPI layout)</span>
+        <span class="text-[11px] text-slate-500 font-medium">Standard Ratio: 3.5cm x 4.5cm</span>
         <div class="flex gap-2">
           <button onclick="closeModal('passportModal')" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-200 transition-colors">Close</button>
-          <button onclick="printElement('passportPrintSheet')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-md flex items-center gap-1.5">
-            <i class="fa-solid fa-print"></i> Print Sheet (Ctrl + P)
+          <button onclick="printPassportDirect()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-sm flex items-center gap-2">
+            <i class="fa-solid fa-print"></i> Print Clean A4
           </button>
         </div>
       </div>
+
     </div>
   </div>
 
-  <!-- 2. ID CARD A4 PRINT LAYOUT MODAL (FRONT & BACK ALIGN) -->
-  <div id="idCardModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden my-6 border border-slate-200 flex flex-col max-h-[90vh]">
-      <div class="px-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <i class="fa-solid fa-address-card text-xl"></i>
+  <!-- 2. ID CARD A4 PRINT LAYOUT MODAL -->
+  <div id="idCardModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto modal-backdrop">
+    <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200 flex flex-col max-h-[90vh] modal-container overflow-hidden">
+      
+      <div class="px-6 py-4.5 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-blue-600/30 text-blue-400 border border-blue-500/30 flex items-center justify-center text-base">
+            <i class="fa-solid fa-address-card"></i>
+          </div>
           <div>
-            <h3 class="font-bold text-base sm:text-lg">ID Card A4 Print Layout</h3>
-            <p class="text-xs text-indigo-100">Align Aadhaar / Voter / PAN front & back side for easy single-page print</p>
+            <h3 class="font-bold text-sm sm:text-base tracking-tight text-white">ID Card Single A4 Layout</h3>
+            <p class="text-[11px] text-slate-400">Fits standard wallet & laminate pouch (8.6cm x 5.4cm)</p>
           </div>
         </div>
-        <button onclick="closeModal('idCardModal')" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center">
+        <button onclick="closeModal('idCardModal')" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
           <i class="fa-solid fa-xmark text-sm"></i>
         </button>
       </div>
@@ -615,56 +589,57 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">1. ID Card Front Side</label>
-            <input type="file" id="idFrontInput" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 cursor-pointer" onchange="previewIdCard(event, 'idFrontImg', 'idFrontContainer')" />
+            <input type="file" id="idFrontInput" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-indigo-600 cursor-pointer" onchange="previewIdCard(event, 'idFrontImg', 'idFrontContainer')" />
           </div>
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">2. ID Card Back Side</label>
-            <input type="file" id="idBackInput" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 cursor-pointer" onchange="previewIdCard(event, 'idBackImg', 'idBackContainer')" />
+            <input type="file" id="idBackInput" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-indigo-600 cursor-pointer" onchange="previewIdCard(event, 'idBackImg', 'idBackContainer')" />
           </div>
         </div>
 
-        <!-- Printable Layout Sheet -->
         <div class="flex flex-col items-center">
-          <div id="idCardPrintSheet" class="bg-white border-2 border-slate-300 p-8 rounded-2xl w-full max-w-xl shadow-md min-h-[320px] flex flex-col justify-center items-center">
-            <h4 class="text-xs font-bold tracking-wider uppercase text-slate-400 mb-4 no-print text-center">Standard Identity Card Print Scale</h4>
+          <div id="idCardPrintSheet" class="bg-white border-2 border-dashed border-slate-200 p-8 rounded-2xl w-full max-w-xl shadow-inner min-h-[300px] flex flex-col justify-center items-center">
+            <h4 class="text-xs font-bold tracking-wider uppercase text-slate-400 mb-4 text-center">STANDARD WALLET CARD PRINT SCALE</h4>
             <div class="flex flex-col sm:flex-row gap-6 items-center justify-center w-full">
-              <!-- Front Card Box -->
               <div id="idFrontContainer" class="w-64 h-40 border-2 border-dashed border-slate-300 rounded-xl flex items-center justify-center overflow-hidden bg-slate-50 relative shadow-sm">
-                <span class="text-xs text-slate-400">Front Side Preview</span>
+                <span class="text-xs text-slate-400 font-medium">Front Preview</span>
                 <img id="idFrontImg" class="hidden w-full h-full object-contain bg-white" alt="Front Preview" />
               </div>
-              <!-- Back Card Box -->
               <div id="idBackContainer" class="w-64 h-40 border-2 border-dashed border-slate-300 rounded-xl flex items-center justify-center overflow-hidden bg-slate-50 relative shadow-sm">
-                <span class="text-xs text-slate-400">Back Side Preview</span>
+                <span class="text-xs text-slate-400 font-medium">Back Preview</span>
                 <img id="idBackImg" class="hidden w-full h-full object-contain bg-white" alt="Back Preview" />
               </div>
             </div>
-            <p class="text-[10px] text-slate-400 mt-4 text-center">Cut along the borders after printing. Fits standard wallet card laminate pouch.</p>
+            <p class="text-[10px] text-slate-400 mt-4 text-center font-medium">Cut along dashed borders after printing. Fits standard wallet card laminate pouch.</p>
           </div>
         </div>
       </div>
 
       <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
-        <button onclick="resetIdCard()" class="text-xs text-rose-600 font-semibold hover:underline">Reset Images</button>
-        <button onclick="printElement('idCardPrintSheet')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-md flex items-center gap-1.5">
+        <button onclick="resetIdCard()" class="text-xs text-rose-600 font-bold hover:underline">Reset Images</button>
+        <button onclick="printIdDirect()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-sm flex items-center gap-2">
           <i class="fa-solid fa-print"></i> Print ID Sheet
         </button>
       </div>
+
     </div>
   </div>
 
   <!-- 3. PHOTO RESIZER & KB REDUCER MODAL -->
-  <div id="resizeModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden my-6 border border-slate-200 flex flex-col">
-      <div class="px-6 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-compress text-xl"></i>
+  <div id="resizeModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto modal-backdrop">
+    <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl border border-slate-200 flex flex-col modal-container overflow-hidden">
+      
+      <div class="px-6 py-4.5 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-base">
+            <i class="fa-solid fa-compress"></i>
+          </div>
           <div>
-            <h3 class="font-bold text-base">Photo Resizer & KB Reducer</h3>
-            <p class="text-xs text-emerald-100">Compress image size for online job forms (20KB - 50KB)</p>
+            <h3 class="font-bold text-sm sm:text-base tracking-tight text-white">Photo Resizer & KB Reducer</h3>
+            <p class="text-[11px] text-slate-400">Target exact 20KB - 50KB for online form validations</p>
           </div>
         </div>
-        <button onclick="closeModal('resizeModal')" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center">
+        <button onclick="closeModal('resizeModal')" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
           <i class="fa-solid fa-xmark text-sm"></i>
         </button>
       </div>
@@ -672,68 +647,71 @@
       <div class="p-6 space-y-5">
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Select Photo to Compress</label>
-          <input type="file" id="resizerFileInput" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-emerald-600 file:text-white cursor-pointer" onchange="handleResizerUpload(event)" />
+          <input type="file" id="resizerFileInput" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-indigo-600 cursor-pointer" onchange="handleResizerUpload(event)" />
         </div>
 
         <div class="grid grid-cols-2 gap-4">
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">Compression Quality</label>
-            <input type="range" id="compressQuality" min="0.1" max="1" step="0.05" value="0.7" class="w-full accent-emerald-600 cursor-pointer" oninput="processCompression()" />
-            <div class="flex justify-between text-[10px] text-slate-400 mt-0.5">
-              <span>Small Size</span>
+            <input type="range" id="compressQuality" min="0.1" max="1" step="0.05" value="0.7" class="w-full accent-indigo-600 cursor-pointer" oninput="processCompression()" />
+            <div class="flex justify-between text-[10px] text-slate-400 mt-0.5 font-medium">
+              <span>Small KB</span>
               <span>High Quality</span>
             </div>
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Target Max Width (px)</label>
-            <select id="targetWidth" onchange="processCompression()" class="w-full bg-white border border-slate-300 rounded-xl px-2.5 py-1.5 text-xs text-slate-800">
-              <option value="400">400px (Passport Size / Signature)</option>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Target Dimension</label>
+            <select id="targetWidth" onchange="processCompression()" class="w-full bg-white border border-slate-300 rounded-xl px-2.5 py-1.5 text-xs text-slate-800 font-medium">
+              <option value="400">400px (Passport / Sign)</option>
               <option value="600" selected>600px (General Form Upload)</option>
               <option value="1000">1000px (Document Scan)</option>
             </select>
           </div>
         </div>
 
-        <!-- Result Box -->
         <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4">
-          <div class="w-24 h-28 bg-white border border-slate-300 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0 shadow-sm">
+          <div class="w-24 h-28 bg-white border border-slate-200 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0 shadow-2xs">
             <img id="compressedImgPreview" class="w-full h-full object-contain hidden" alt="Compressed Preview" />
-            <span id="compressedPlaceholder" class="text-[10px] text-slate-400 text-center px-1">No Image</span>
+            <span id="compressedPlaceholder" class="text-[10px] text-slate-400 font-medium">No Image</span>
           </div>
           <div class="space-y-1">
-            <p class="text-xs font-bold text-slate-800">Estimated Output File Size:</p>
-            <p id="compressedSizeText" class="text-xl font-black text-emerald-600">0 KB</p>
-            <p class="text-[11px] text-slate-500">Form validation ke liye perfect size</p>
+            <p class="text-xs font-bold text-slate-700">Calculated Output Size:</p>
+            <p id="compressedSizeText" class="text-2xl font-black text-indigo-600">0 KB</p>
+            <p class="text-[11px] text-slate-400">Suitable for government portal uploads</p>
           </div>
         </div>
       </div>
 
       <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
         <button onclick="closeModal('resizeModal')" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-200">Cancel</button>
-        <button id="downloadCompressedBtn" onclick="downloadCompressedPhoto()" disabled class="bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-md flex items-center gap-1.5">
+        <button id="downloadCompressedBtn" onclick="downloadCompressedPhoto()" disabled class="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-sm flex items-center gap-2">
           <i class="fa-solid fa-download"></i> Download JPG
         </button>
       </div>
+
     </div>
   </div>
 
   <!-- 4. QUICK PHOTO ENHANCER MODAL -->
-  <div id="editorModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden my-6 border border-slate-200 flex flex-col">
-      <div class="px-6 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
-          <h3 class="font-bold text-base">Quick Photo Enhancer</h3>
+  <div id="editorModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto modal-backdrop">
+    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl border border-slate-200 flex flex-col modal-container overflow-hidden">
+      
+      <div class="px-6 py-4.5 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-600/30 text-amber-400 border border-amber-500/30 flex items-center justify-center text-base">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base tracking-tight text-white">Instant Photo Enhancer</h3>
         </div>
-        <button onclick="closeModal('editorModal')" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center">
+        <button onclick="closeModal('editorModal')" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
           <i class="fa-solid fa-xmark text-sm"></i>
         </button>
       </div>
 
       <div class="p-6 space-y-4">
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Upload Photo</label>
-          <input type="file" id="editorFileInput" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-600 file:text-white cursor-pointer" onchange="handleEditorUpload(event)" />
+          <label class="block text-xs font-bold text-slate-700 mb-1">Select Photo</label>
+          <input type="file" id="editorFileInput" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-indigo-600 cursor-pointer" onchange="handleEditorUpload(event)" />
         </div>
 
         <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
@@ -742,7 +720,7 @@
               <span>Brightness</span>
               <span id="brightnessVal">100%</span>
             </div>
-            <input type="range" id="brightnessRange" min="50" max="180" value="100" class="w-full accent-amber-500" oninput="applyFilters()" />
+            <input type="range" id="brightnessRange" min="50" max="180" value="100" class="w-full accent-indigo-600" oninput="applyFilters()" />
           </div>
 
           <div>
@@ -750,81 +728,88 @@
               <span>Contrast</span>
               <span id="contrastVal">100%</span>
             </div>
-            <input type="range" id="contrastRange" min="50" max="180" value="100" class="w-full accent-amber-500" oninput="applyFilters()" />
+            <input type="range" id="contrastRange" min="50" max="180" value="100" class="w-full accent-indigo-600" oninput="applyFilters()" />
           </div>
         </div>
 
-        <div class="flex justify-center border border-slate-200 rounded-2xl p-4 bg-slate-100 min-h-[180px] items-center">
-          <canvas id="editorCanvas" class="max-h-64 max-w-full rounded-lg shadow-sm"></canvas>
+        <div class="flex justify-center border border-slate-200 rounded-2xl p-4 bg-slate-50 min-h-[180px] items-center">
+          <canvas id="editorCanvas" class="max-h-60 max-w-full rounded-lg shadow-sm"></canvas>
         </div>
       </div>
 
       <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
-        <button onclick="downloadEditorCanvas()" class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-md flex items-center gap-1.5">
-          <i class="fa-solid fa-download"></i> Download Enhanced Photo
+        <button onclick="downloadEditorCanvas()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-sm flex items-center gap-2">
+          <i class="fa-solid fa-download"></i> Save Enhanced Photo
         </button>
       </div>
+
     </div>
   </div>
 
   <!-- 5. SHOP UPI QR CODE MAKER MODAL -->
-  <div id="qrModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden my-6 border border-slate-200 flex flex-col">
-      <div class="px-6 py-4 bg-gradient-to-r from-violet-600 to-indigo-600 text-white flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-qrcode text-lg"></i>
-          <h3 class="font-bold text-base">Cyber Cafe UPI Standee Maker</h3>
+  <div id="qrModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto modal-backdrop">
+    <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl border border-slate-200 flex flex-col modal-container overflow-hidden">
+      
+      <div class="px-6 py-4.5 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-purple-600/30 text-purple-400 border border-purple-500/30 flex items-center justify-center text-base">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base tracking-tight text-white">Counter UPI Standee Generator</h3>
         </div>
-        <button onclick="closeModal('qrModal')" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center">
+        <button onclick="closeModal('qrModal')" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
           <i class="fa-solid fa-xmark text-sm"></i>
         </button>
       </div>
 
       <div class="p-6 space-y-4">
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Shop / Cafe Name</label>
-          <input type="text" id="qrShopName" value="Mheer Cyber Cafe & Print" placeholder="e.g. Mheer Cyber Cafe" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-800" oninput="generateShopQR()" />
+          <label class="block text-xs font-bold text-slate-700 mb-1">Shop / Center Name</label>
+          <input type="text" id="qrShopName" value="Mheer Cyber & Print Hub" placeholder="e.g. Mheer Cyber Cafe" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-800 font-medium" oninput="generateShopQR()" />
         </div>
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Your UPI ID (VPA)</label>
-          <input type="text" id="qrUpiId" placeholder="e.g. 9876543210@paytm / yourname@okicici" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-800" oninput="generateShopQR()" />
+          <input type="text" id="qrUpiId" placeholder="e.g. 9876543210@paytm / mheer@upi" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-800 font-medium" oninput="generateShopQR()" />
         </div>
 
-        <!-- Standee Printable Card -->
-        <div id="qrPrintArea" class="bg-white border-2 border-slate-300 rounded-2xl p-6 text-center space-y-3 shadow-md">
-          <div class="flex items-center justify-center gap-2 text-indigo-700 font-extrabold text-sm uppercase tracking-wider">
-            <i class="fa-solid fa-shield-halved"></i> Accepted Here
+        <div id="qrPrintArea" class="bg-white border-2 border-slate-200 rounded-2xl p-6 text-center space-y-3 shadow-inner">
+          <div class="flex items-center justify-center gap-1.5 text-indigo-600 font-black text-xs uppercase tracking-wider">
+            <i class="fa-solid fa-shield-halved"></i> All UPI Apps Accepted
           </div>
-          <h4 id="qrDisplayShop" class="font-black text-slate-900 text-lg">Mheer Cyber Cafe</h4>
+          <h4 id="qrDisplayShop" class="font-black text-slate-900 text-lg">Mheer Cyber & Print Hub</h4>
           
-          <div class="w-44 h-44 mx-auto bg-slate-50 border border-slate-200 rounded-xl p-2 flex items-center justify-center shadow-inner">
-            <img id="qrImageTag" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=mheercafe@upi&pn=MheerCafe" alt="UPI QR" class="w-full h-full" />
+          <div class="w-44 h-44 mx-auto bg-slate-50 border border-slate-200 rounded-2xl p-2.5 flex items-center justify-center shadow-2xs">
+            <img id="qrImageTag" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=mheer@upi&pn=MheerHub" alt="UPI QR" class="w-full h-full rounded-lg" />
           </div>
 
-          <p class="text-xs font-semibold text-slate-700">Scan & Pay using any UPI App</p>
-          <div class="flex justify-center items-center gap-3 text-xs text-slate-400">
+          <p class="text-xs font-bold text-slate-700">Scan & Pay</p>
+          <div class="flex justify-center items-center gap-2 text-[11px] text-slate-400 font-medium">
             <span>GPay</span> • <span>PhonePe</span> • <span>Paytm</span> • <span>BHIM</span>
           </div>
         </div>
       </div>
 
       <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
-        <button onclick="printElement('qrPrintArea')" class="bg-violet-600 hover:bg-violet-700 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-md flex items-center gap-1.5">
+        <button onclick="printQrDirect()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-sm flex items-center gap-2">
           <i class="fa-solid fa-print"></i> Print Counter Standee
         </button>
       </div>
+
     </div>
   </div>
 
   <!-- 6. QUICK 2-MIN RESUME / BIODATA MODAL -->
-  <div id="resumeModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div class="bg-white w-full max-w-3xl rounded-3xl shadow-2xl overflow-hidden my-6 border border-slate-200 flex flex-col max-h-[90vh]">
-      <div class="px-6 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-file-lines text-lg"></i>
-          <h3 class="font-bold text-base">Quick 2-Minute Resume / Bio-Data Generator</h3>
+  <div id="resumeModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto modal-backdrop">
+    <div class="bg-white w-full max-w-3xl rounded-3xl shadow-2xl border border-slate-200 flex flex-col max-h-[90vh] modal-container overflow-hidden">
+      
+      <div class="px-6 py-4.5 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-cyan-600/30 text-cyan-400 border border-cyan-500/30 flex items-center justify-center text-base">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base tracking-tight text-white">Instant 2-Minute Resume Builder</h3>
         </div>
-        <button onclick="closeModal('resumeModal')" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center">
+        <button onclick="closeModal('resumeModal')" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
           <i class="fa-solid fa-xmark text-sm"></i>
         </button>
       </div>
@@ -833,118 +818,117 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs">
           <div>
             <label class="block font-bold text-slate-700 mb-1">Full Name</label>
-            <input type="text" id="cvName" value="Rahul Kumar" class="w-full bg-white border border-slate-300 rounded-lg p-2" oninput="updateCvPreview()" />
+            <input type="text" id="cvName" value="Mantu Kumar" class="w-full bg-white border border-slate-300 rounded-lg p-2 font-medium" oninput="updateCvPreview()" />
           </div>
           <div>
-            <label class="block font-bold text-slate-700 mb-1">Phone Number & Email</label>
-            <input type="text" id="cvContact" value="+91 98765 43210 | rahul.kumar@email.com" class="w-full bg-white border border-slate-300 rounded-lg p-2" oninput="updateCvPreview()" />
+            <label class="block font-bold text-slate-700 mb-1">Contact Phone & Email</label>
+            <input type="text" id="cvContact" value="+91 98765 43210 | contact@mheer.com" class="w-full bg-white border border-slate-300 rounded-lg p-2 font-medium" oninput="updateCvPreview()" />
           </div>
           <div>
             <label class="block font-bold text-slate-700 mb-1">Address</label>
-            <input type="text" id="cvAddress" value="Ward No. 4, Main Market, Jaipur, Rajasthan" class="w-full bg-white border border-slate-300 rounded-lg p-2" oninput="updateCvPreview()" />
+            <input type="text" id="cvAddress" value="Delhi, India" class="w-full bg-white border border-slate-300 rounded-lg p-2 font-medium" oninput="updateCvPreview()" />
           </div>
           <div>
-            <label class="block font-bold text-slate-700 mb-1">Education (Highest Degree)</label>
-            <input type="text" id="cvEducation" value="B.Com (Graduation) - Rajasthan University (2022)" class="w-full bg-white border border-slate-300 rounded-lg p-2" oninput="updateCvPreview()" />
+            <label class="block font-bold text-slate-700 mb-1">Highest Qualification</label>
+            <input type="text" id="cvEducation" value="Graduate - Delhi University" class="w-full bg-white border border-slate-300 rounded-lg p-2 font-medium" oninput="updateCvPreview()" />
           </div>
           <div class="sm:col-span-2">
-            <label class="block font-bold text-slate-700 mb-1">Skills & Experience</label>
-            <textarea id="cvSkills" rows="2" class="w-full bg-white border border-slate-300 rounded-lg p-2" oninput="updateCvPreview()">Computer Basic, MS Office, Tally Prime, Fast Typing Speed (Hindi & English). 1 Year experience as Computer Operator.</textarea>
+            <label class="block font-bold text-slate-700 mb-1">Professional Experience & Skills</label>
+            <textarea id="cvSkills" rows="2" class="w-full bg-white border border-slate-300 rounded-lg p-2 font-medium" oninput="updateCvPreview()">Assistant Manager with hands-on MIS reporting, billing reconciliation, operations management, MS Office & digital desk workflows.</textarea>
           </div>
         </div>
 
-        <!-- Printable Resume Area -->
-        <div id="resumePrintArea" class="bg-white border-2 border-slate-300 p-8 rounded-xl max-w-xl mx-auto shadow-sm text-slate-800 space-y-4">
-          <div class="border-b-2 border-slate-800 pb-3 text-center">
-            <h2 id="cvViewName" class="text-2xl font-black uppercase tracking-tight text-slate-900">Rahul Kumar</h2>
-            <p id="cvViewContact" class="text-xs text-slate-600 mt-1 font-medium">+91 98765 43210 | rahul.kumar@email.com</p>
-            <p id="cvViewAddress" class="text-xs text-slate-500">Ward No. 4, Main Market, Jaipur, Rajasthan</p>
+        <div id="resumePrintArea" class="bg-white border-2 border-slate-200 p-8 rounded-2xl max-w-xl mx-auto shadow-inner text-slate-800 space-y-4">
+          <div class="border-b-2 border-slate-900 pb-3 text-center">
+            <h2 id="cvViewName" class="text-2xl font-black uppercase tracking-tight text-slate-900">Mantu Kumar</h2>
+            <p id="cvViewContact" class="text-xs text-slate-600 mt-1 font-semibold">+91 98765 43210 | contact@mheer.com</p>
+            <p id="cvViewAddress" class="text-xs text-slate-500 font-medium">Delhi, India</p>
           </div>
 
           <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1 border-b pb-0.5">Career Objective</h4>
-            <p class="text-xs leading-relaxed text-slate-600">To secure a responsible position in a professional organization where I can utilize my skills, knowledge, and hard work towards organization growth.</p>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1 border-b pb-0.5">Career Objective</h4>
+            <p class="text-xs leading-relaxed text-slate-600 font-normal">To leverage my operational capabilities, billing expertise, and organizational management skills to achieve strategic growth in a performance-driven workplace.</p>
           </div>
 
           <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1 border-b pb-0.5">Educational Qualification</h4>
-            <p id="cvViewEducation" class="text-xs leading-relaxed text-slate-700 font-medium">B.Com (Graduation) - Rajasthan University (2022)</p>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1 border-b pb-0.5">Educational Qualification</h4>
+            <p id="cvViewEducation" class="text-xs leading-relaxed text-slate-800 font-semibold">Graduate - Delhi University</p>
           </div>
 
           <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1 border-b pb-0.5">Key Skills & Experience</h4>
-            <p id="cvViewSkills" class="text-xs leading-relaxed text-slate-700 whitespace-pre-line">Computer Basic, MS Office, Tally Prime, Fast Typing Speed (Hindi & English). 1 Year experience as Computer Operator.</p>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1 border-b pb-0.5">Key Skills & Experience</h4>
+            <p id="cvViewSkills" class="text-xs leading-relaxed text-slate-700 whitespace-pre-line font-medium">Assistant Manager with hands-on MIS reporting, billing reconciliation, operations management, MS Office & digital desk workflows.</p>
           </div>
 
-          <div class="pt-6 flex justify-between items-end text-xs text-slate-500">
+          <div class="pt-6 flex justify-between items-end text-xs text-slate-500 font-medium">
             <div>
               <p>Date: ___________</p>
-              <p>Place: ___________</p>
+              <p class="mt-1">Place: ___________</p>
             </div>
             <div class="text-center">
-              <p class="mt-4 border-t border-slate-400 pt-1 font-semibold text-slate-700">Signature</p>
+              <p class="border-t border-slate-400 pt-1 font-bold text-slate-800 min-w-32">Signature</p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
-        <button onclick="printElement('resumePrintArea')" class="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-md flex items-center gap-1.5">
+        <button onclick="printResumeDirect()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-sm flex items-center gap-2">
           <i class="fa-solid fa-print"></i> Print Clean Resume
         </button>
       </div>
+
     </div>
   </div>
 
-  <!-- PRINT CONTAINER FOR PRINTING MODAL VIEWS DIRECTLY -->
-  <div id="printArea" class="hidden"></div>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+  <!-- ================= MODERN FOOTER ================= -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-14 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="md:col-span-2 space-y-3">
-          <div class="flex items-center gap-2 text-white font-black text-lg">
-            <span class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-sm font-black">M</span>
+        
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3 text-white font-extrabold text-lg">
+            <div class="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center text-sm font-black shadow-md shadow-indigo-600/30">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
             Mheer All-In-One
           </div>
           <p class="text-slate-400 text-xs max-w-sm leading-relaxed">
-            Fast, secure and free digital workspace for cyber cafes, photo studios, Common Service Centers (CSC) and students across India.
+            Engineered for cyber cafes, photo studios, Common Service Centers (CSC) and digital entrepreneurs across India. High-efficiency client-side processing with zero server footprint.
           </p>
         </div>
 
         <div>
           <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Popular Quick Tools</h4>
-          <ul class="space-y-2">
-            <li><button onclick="openModal('passportModal')" class="hover:text-white transition-colors">Passport Size Photo Sheet</button></li>
-            <li><button onclick="openModal('idCardModal')" class="hover:text-white transition-colors">A4 ID Card Print Layout</button></li>
-            <li><button onclick="openModal('resizeModal')" class="hover:text-white transition-colors">Photo Resizer & KB Reducer</button></li>
-            <li><button onclick="openModal('qrModal')" class="hover:text-white transition-colors">Shop UPI QR Standee</button></li>
+          <ul class="space-y-2 font-medium">
+            <li><button onclick="openModal('passportModal')" class="hover:text-indigo-400 transition-colors">Passport Size Photo Sheet</button></li>
+            <li><button onclick="openModal('idCardModal')" class="hover:text-indigo-400 transition-colors">ID Card A4 Print Layout</button></li>
+            <li><button onclick="openModal('resizeModal')" class="hover:text-indigo-400 transition-colors">Photo Resizer & KB Reducer</button></li>
+            <li><button onclick="openModal('qrModal')" class="hover:text-indigo-400 transition-colors">Shop UPI Standee</button></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Direct Government Hub</h4>
-          <ul class="space-y-2">
-            <li><a href="https://sarathi.parivahan.gov.in/" target="_blank" class="hover:text-white">Sarathi Driving Licence</a></li>
-            <li><a href="https://myaadhaar.uidai.gov.in/" target="_blank" class="hover:text-white">UIDAI MyAadhaar</a></li>
-            <li><a href="https://voters.eci.gov.in/" target="_blank" class="hover:text-white">ECI Voter Services</a></li>
-            <li><a href="https://pmkisan.gov.in/" target="_blank" class="hover:text-white">PM Kisan Nidhi</a></li>
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Verified Portals</h4>
+          <ul class="space-y-2 font-medium">
+            <li><a href="https://sarathi.parivahan.gov.in/" target="_blank" class="hover:text-indigo-400 transition-colors">Sarathi Driving Licence</a></li>
+            <li><a href="https://myaadhaar.uidai.gov.in/" target="_blank" class="hover:text-indigo-400 transition-colors">UIDAI MyAadhaar</a></li>
+            <li><a href="https://voters.eci.gov.in/" target="_blank" class="hover:text-indigo-400 transition-colors">ECI Voter Services</a></li>
+            <li><a href="https://pmkisan.gov.in/" target="_blank" class="hover:text-indigo-400 transition-colors">PM Kisan Portal</a></li>
           </ul>
         </div>
+
       </div>
 
-      <!-- Legal Disclaimer -->
-      <div class="border-t border-slate-800 pt-6 text-[11px] text-slate-500 leading-relaxed text-center sm:text-left">
-        <p><b>Disclaimer:</b> Mheer All-In-One is an independent utility and quick link portal directory designed to help students, cyber cafes, and shop owners prepare layouts and easily reach official government portals. We are <b>not</b> affiliated, associated, or endorsed by any government entity or ministry. All official logos and portal links remain the intellectual property of their respective departments.</p>
-        <p class="mt-2 text-slate-600">© <span id="currentYear">2026</span> Mheer All-In-One. Made for effortless cyber cafe workflows.</p>
+      <div class="border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <p>© <span id="currentYear">2026</span> Mheer All-In-One. Made for effortless cyber cafe workflows.</p>
+        <p class="max-w-xl text-center sm:text-right">Independent utility directory. All respective departmental logos belong to their official owners.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <!-- ================= LOGIC & PRINT ENGINE ================= -->
   <script>
-    // Update year dynamically
     document.getElementById('currentYear').innerText = new Date().getFullYear();
 
     // 1. Live Search System
@@ -954,11 +938,7 @@
       const clearBtn = document.getElementById('clearSearchBtn');
       const stats = document.getElementById('searchStats');
 
-      if (query.length > 0) {
-        clearBtn.classList.remove('hidden');
-      } else {
-        clearBtn.classList.add('hidden');
-      }
+      clearBtn.classList.toggle('hidden', query.length === 0);
 
       let matchCount = 0;
       cards.forEach(card => {
@@ -975,7 +955,7 @@
 
       if (query.length > 0) {
         stats.classList.remove('hidden');
-        stats.innerText = `${matchCount} results found for "${query}"`;
+        stats.innerText = `${matchCount} results matched`;
       } else {
         stats.classList.add('hidden');
       }
@@ -986,6 +966,12 @@
       input.value = '';
       handleLiveSearch();
       input.focus();
+    }
+
+    function setSearchFilter(keyword) {
+      const input = document.getElementById('globalSearchInput');
+      input.value = keyword;
+      handleLiveSearch();
     }
 
     // 2. Modals Control
@@ -1018,18 +1004,57 @@
       }
     }
 
-    // 4. Print Element Utility
-    function printElement(elementId) {
-      const source = document.getElementById(elementId);
-      const printContainer = document.getElementById('printArea');
-      if (!source || !printContainer) return;
+    // ==============================================================
+    // ZERO-BLANK-PAGE PRINT ENGINE (CALIBRATED FOR A4 OUTPUT)
+    // ==============================================================
+    function executeCleanPrint(title, innerHtmlContent, customCss = '') {
+      const printWin = window.open('', '_blank');
+      if (!printWin) {
+        alert('Popup blocker active hai! Please browser me popups allow karein.');
+        return;
+      }
 
-      printContainer.innerHTML = source.innerHTML;
-      window.print();
-      printContainer.innerHTML = '';
+      printWin.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>${title}</title>
+          <style>
+            @page {
+              size: A4 portrait;
+              margin: 10mm;
+            }
+            * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+              font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            body {
+              background: #ffffff;
+              color: #000000;
+              padding: 10px;
+            }
+            ${customCss}
+          </style>
+        </head>
+        <body>
+          ${innerHtmlContent}
+          <script>
+            window.onload = function() {
+              setTimeout(function() {
+                window.print();
+                window.close();
+              }, 250);
+            };
+          <\/script>
+        </body>
+        </html>
+      `);
+      printWin.document.close();
     }
 
-    // 5. Passport Photo Maker Logic
+    // 4. Passport Photo Logic
     let currentPassportImageSrc = null;
 
     function handlePassportUpload(event) {
@@ -1058,8 +1083,7 @@
 
       for (let i = 0; i < count; i++) {
         const photoDiv = document.createElement('div');
-        // 3.5cm x 4.5cm approximate ratio box
-        photoDiv.className = `w-[110px] h-[142px] overflow-hidden bg-white shadow-sm flex items-center justify-center ${borderClass}`;
+        photoDiv.className = `w-[110px] h-[142px] overflow-hidden bg-white shadow-2xs flex items-center justify-center ${borderClass}`;
         
         const img = document.createElement('img');
         img.src = currentPassportImageSrc;
@@ -1071,7 +1095,39 @@
       }
     }
 
-    // 6. ID Card Print Layout Logic
+    function printPassportDirect() {
+      if (!currentPassportImageSrc) {
+        alert('Kripya pehle photo upload karein!');
+        return;
+      }
+      const count = parseInt(document.getElementById('passportCopies').value) || 8;
+      const borderStyle = document.getElementById('passportBorder').value.includes('border-2') 
+        ? 'border: 1px solid #000;' 
+        : (document.getElementById('passportBorder').value.includes('border-0') ? 'border: none;' : 'border: 1px solid #cbd5e1;');
+
+      let photosHtml = '';
+      for (let i = 0; i < count; i++) {
+        photosHtml += `
+          <div style="width: 3.5cm; height: 4.5cm; ${borderStyle} display: inline-block; overflow: hidden; background: #fff; margin: 3px;">
+            <img src="${currentPassportImageSrc}" style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+        `;
+      }
+
+      const content = `
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; align-items: flex-start;">
+          ${photosHtml}
+        </div>
+        <p style="font-size: 10px; color: #64748b; margin-top: 15px;">Standard 3.5cm x 4.5cm Passport Grid &bull; Calibrated for A4 Sheet</p>
+      `;
+
+      executeCleanPrint('Passport Photo Sheet - Mheer All-In-One', content);
+    }
+
+    // 5. ID Card Direct Print Logic
+    let idFrontSrc = '';
+    let idBackSrc = '';
+
     function previewIdCard(event, imgId, containerId) {
       const file = event.target.files[0];
       if (!file) return;
@@ -1085,6 +1141,9 @@
         img.src = e.target.result;
         img.classList.remove('hidden');
         if (placeholder) placeholder.classList.add('hidden');
+
+        if (imgId === 'idFrontImg') idFrontSrc = e.target.result;
+        if (imgId === 'idBackImg') idBackSrc = e.target.result;
       };
       reader.readAsDataURL(file);
     }
@@ -1099,11 +1158,122 @@
       frontImg.src = '';
       backImg.classList.add('hidden');
       backImg.src = '';
+      idFrontSrc = '';
+      idBackSrc = '';
 
       document.querySelectorAll('#idFrontContainer span, #idBackContainer span').forEach(s => s.classList.remove('hidden'));
     }
 
-    // 7. Photo Resizer & KB Reducer Logic
+    function printIdDirect() {
+      if (!idFrontSrc && !idBackSrc) {
+        alert('Kripya ID card ki front ya back photo upload karein!');
+        return;
+      }
+
+      const content = `
+        <div style="display: flex; gap: 20px; align-items: center; justify-content: flex-start; margin-top: 20px;">
+          ${idFrontSrc ? `
+            <div style="width: 8.6cm; height: 5.4cm; border: 1px dashed #334155; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #fff;">
+              <img src="${idFrontSrc}" style="width: 100%; height: 100%; object-fit: contain;" />
+            </div>
+          ` : ''}
+          ${idBackSrc ? `
+            <div style="width: 8.6cm; height: 5.4cm; border: 1px dashed #334155; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #fff;">
+              <img src="${idBackSrc}" style="width: 100%; height: 100%; object-fit: contain;" />
+            </div>
+          ` : ''}
+        </div>
+        <p style="font-size: 11px; color: #64748b; margin-top: 15px;">Standard Wallet ID Card (8.6cm x 5.4cm) &bull; Cut along dashed borders</p>
+      `;
+
+      executeCleanPrint('ID Card A4 Layout - Mheer All-In-One', content);
+    }
+
+    // 6. Shop UPI QR Print Logic
+    function generateShopQR() {
+      const shop = document.getElementById('qrShopName').value.trim() || 'Mheer Cyber Cafe';
+      const upi = document.getElementById('qrUpiId').value.trim() || 'shopname@upi';
+
+      document.getElementById('qrDisplayShop').innerText = shop;
+      const upiLink = `upi://pay?pa=${encodeURIComponent(upi)}&pn=${encodeURIComponent(shop)}`;
+      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiLink)}`;
+      document.getElementById('qrImageTag').src = qrApiUrl;
+    }
+
+    function printQrDirect() {
+      const shop = document.getElementById('qrShopName').value.trim() || 'Mheer Cyber Cafe';
+      const qrSrc = document.getElementById('qrImageTag').src;
+
+      const content = `
+        <div style="max-width: 380px; margin: 40px auto; border: 2px solid #0f172a; border-radius: 16px; padding: 24px; text-align: center;">
+          <h2 style="font-size: 14px; color: #4338ca; text-transform: uppercase; font-weight: 800; margin-bottom: 8px;">ALL UPI APPS ACCEPTED</h2>
+          <h1 style="font-size: 22px; font-weight: 900; color: #0f172a; margin-bottom: 16px;">${shop}</h1>
+          <div style="width: 220px; height: 220px; margin: 0 auto 16px; border: 1px solid #cbd5e1; border-radius: 12px; padding: 8px;">
+            <img src="${qrSrc}" style="width: 100%; height: 100%; object-fit: contain;" />
+          </div>
+          <p style="font-size: 13px; font-weight: 700; color: #334155; margin-bottom: 8px;">Scan & Pay using any UPI App</p>
+          <p style="font-size: 11px; color: #64748b;">Google Pay &bull; PhonePe &bull; Paytm &bull; BHIM</p>
+        </div>
+      `;
+
+      executeCleanPrint('UPI Standee Print - Mheer All-In-One', content);
+    }
+
+    // 7. Resume Direct Print Logic
+    function updateCvPreview() {
+      document.getElementById('cvViewName').innerText = document.getElementById('cvName').value || 'Full Name';
+      document.getElementById('cvViewContact').innerText = document.getElementById('cvContact').value || 'Phone & Email';
+      document.getElementById('cvViewAddress').innerText = document.getElementById('cvAddress').value || 'Address';
+      document.getElementById('cvViewEducation').innerText = document.getElementById('cvEducation').value || 'Education Details';
+      document.getElementById('cvViewSkills').innerText = document.getElementById('cvSkills').value || 'Skills Details';
+    }
+
+    function printResumeDirect() {
+      const name = document.getElementById('cvName').value || 'Full Name';
+      const contact = document.getElementById('cvContact').value || 'Phone & Email';
+      const address = document.getElementById('cvAddress').value || 'Address';
+      const edu = document.getElementById('cvEducation').value || 'Education Details';
+      const skills = document.getElementById('cvSkills').value || 'Skills Details';
+
+      const content = `
+        <div style="max-width: 650px; margin: 0 auto; line-height: 1.6; color: #1e293b;">
+          <div style="border-bottom: 2px solid #0f172a; padding-bottom: 12px; text-align: center; margin-bottom: 18px;">
+            <h1 style="font-size: 24px; font-weight: 900; text-transform: uppercase;">${name}</h1>
+            <p style="font-size: 12px; color: #475569; margin-top: 4px;">${contact}</p>
+            <p style="font-size: 11px; color: #64748b;">${address}</p>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <h3 style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: #4f46e5; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; margin-bottom: 6px;">Career Objective</h3>
+            <p style="font-size: 12px; color: #334155;">To leverage my operational capabilities, billing expertise, and organizational management skills to achieve strategic growth in a performance-driven workplace.</p>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <h3 style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: #4f46e5; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; margin-bottom: 6px;">Educational Qualification</h3>
+            <p style="font-size: 12px; color: #1e293b; font-weight: 600;">${edu}</p>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <h3 style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: #4f46e5; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; margin-bottom: 6px;">Key Skills & Experience</h3>
+            <p style="font-size: 12px; color: #334155; white-space: pre-line;">${skills}</p>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 60px; font-size: 12px; color: #64748b;">
+            <div>
+              <p>Date: ___________</p>
+              <p style="margin-top: 4px;">Place: ___________</p>
+            </div>
+            <div style="text-align: center;">
+              <p style="border-top: 1px solid #94a3b8; padding-top: 4px; font-weight: 600; color: #1e293b; min-width: 140px;">Signature</p>
+            </div>
+          </div>
+        </div>
+      `;
+
+      executeCleanPrint('Resume - Mheer All-In-One', content);
+    }
+
+    // 8. Resizer Logic
     let rawResizerImage = null;
     let compressedDataUrl = null;
 
@@ -1144,7 +1314,6 @@
 
       compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
 
-      // Calculate approximate size in KB
       const head = 'data:image/jpeg;base64,';
       const sizeInBytes = Math.round((compressedDataUrl.length - head.length) * 3 / 4);
       const sizeInKb = (sizeInBytes / 1024).toFixed(1);
@@ -1170,7 +1339,7 @@
       document.body.removeChild(a);
     }
 
-    // 8. Photo Enhancer / Canvas Filters Logic
+    // 9. Photo Enhancer Logic
     let editorImg = null;
 
     function handleEditorUpload(event) {
@@ -1216,26 +1385,6 @@
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-    }
-
-    // 9. Shop UPI QR Generator Logic
-    function generateShopQR() {
-      const shop = document.getElementById('qrShopName').value.trim() || 'Mheer Cyber Cafe';
-      const upi = document.getElementById('qrUpiId').value.trim() || 'shopname@upi';
-
-      document.getElementById('qrDisplayShop').innerText = shop;
-      const upiLink = `upi://pay?pa=${encodeURIComponent(upi)}&pn=${encodeURIComponent(shop)}`;
-      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
-      document.getElementById('qrImageTag').src = qrApiUrl;
-    }
-
-    // 10. Quick Resume Preview Logic
-    function updateCvPreview() {
-      document.getElementById('cvViewName').innerText = document.getElementById('cvName').value || 'Full Name';
-      document.getElementById('cvViewContact').innerText = document.getElementById('cvContact').value || 'Phone & Email';
-      document.getElementById('cvViewAddress').innerText = document.getElementById('cvAddress').value || 'Address';
-      document.getElementById('cvViewEducation').innerText = document.getElementById('cvEducation').value || 'Education Details';
-      document.getElementById('cvViewSkills').innerText = document.getElementById('cvSkills').value || 'Skills Details';
     }
   </script>
 </body>
